@@ -7,35 +7,78 @@ import java.util.List;
 
 public class CollectionOperator {
     public List<Integer> getListByInterval(int left, int right) {
-        int op = 1;
-        if (left > right){
-            op = -1;
-        }
         List<Integer> rs = new ArrayList<>();
-        for (int i = left; i < right; i = i +op ) {
-            rs.add(i);
+        if (left>right){
+            for (int i = left; i >= right; i-- ) {
+                rs.add(i);
+            }
+        }else {
+            for (int i = left; i <= right; i++ ) {
+                rs.add(i);
+            }
         }
         return  rs;
 //        throw new NotImplementedException();
     }
 
     public List<Integer> getEvenListByIntervals(int left, int right) {
-        throw new NotImplementedException();
+        List<Integer> rs = new ArrayList<>();
+        if (left>right){
+            for (int i = left; i >= right; i-- ) {
+                if (i%2 == 0){
+                    rs.add(i);
+                }
+            }
+        }else {
+            for (int i = left; i <= right; i++ ) {
+                if (i%2 == 0){
+                    rs.add(i);
+                }
+            }
+        }
+        return  rs;
+//        throw new NotImplementedException();
     }
 
     public List<Integer> popEvenElments(int[] array) {
-        throw new NotImplementedException();
+        List<Integer> rs = new ArrayList<>();
+        for (Integer i:array){
+            if (i%2==0){
+                rs.add(i);
+            }
+        }
+        return rs;
+//        throw new NotImplementedException();
     }
 
     public int popLastElment(int[] array) {
-        throw new NotImplementedException();
+        return array[array.length];
+//        throw new NotImplementedException();
     }
 
     public List<Integer> popCommonElement(int[] firstArray, int[] secondArray) {
-        throw new NotImplementedException();
+            List<Integer> rs = new ArrayList<>();
+            for (int i:firstArray){
+                for(int j:secondArray){
+                    if(firstArray[i] == secondArray[j]){
+                        rs.add(firstArray[i]);
+                    }
+                }
+            }
+            return  rs;
+//        throw new NotImplementedException();
     }
 
     public List<Integer> addUncommonElement(Integer[] firstArray, Integer[] secondArray) {
-        throw new NotImplementedException();
+        List<Integer> rs = new ArrayList<>();
+        for (int i:firstArray){
+            for(int j:secondArray){
+                if(firstArray[i] == secondArray[j]){
+                    rs.add(firstArray[i]);
+                }
+            }
+        }
+        return  rs;
+//        throw new NotImplementedException();
     }
 }
