@@ -18,7 +18,7 @@ public class InverseReduce {
 
     public List<Integer> divideToSmaller(int number) {
         List<Integer> rs = new ArrayList<>();
-        while (number >= 0){
+        while (number >= 2){
             number -= 2;
             rs.add(number);
         }

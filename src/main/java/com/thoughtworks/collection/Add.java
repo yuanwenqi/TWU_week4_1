@@ -10,22 +10,40 @@ import java.util.List;
 public class Add {
     public int getSumOfEvens(int leftBorder, int rightBorder) {
         int s = 0;
-        for (int i = leftBorder; i < rightBorder+1; i++) {
-            if (i%2 == 0){
-                s += i;
+        if (leftBorder < rightBorder){
+            for (int i = leftBorder; i <= rightBorder; i++) {
+                if (i%2 == 0){
+                    s += i;
+                }
+            }
+        }else{
+            for (int i = rightBorder; i <= leftBorder; i++) {
+                if (i%2 == 0){
+                    s += i;
+                }
             }
         }
+
         return  s;
 //        throw new NotImplementedException();
     }
 
     public int getSumOfOdds(int leftBorder, int rightBorder) {
         int s = 0;
-        for (int i = leftBorder; i < rightBorder+1; i++) {
-            if (i%2 == 1){
-                s += i;
+        if (leftBorder < rightBorder){
+            for (int i = leftBorder; i <= rightBorder; i++) {
+                if (i%2 == 1){
+                    s += i;
+                }
+            }
+        }else{
+            for (int i = rightBorder; i <= leftBorder; i++) {
+                if (i%2 == 1){
+                    s += i;
+                }
             }
         }
+
         return  s;
 //        throw new NotImplementedException();
     }
@@ -93,10 +111,14 @@ public class Add {
     }
 
     public List<Integer> getUnrepeatedFromEvenIndex(List<Integer> arrayList) {
-//        for(Integer i:arrayList){
-//            if(i%2 == 1)
-//        }
-        throw new NotImplementedException();
+        List<Integer> rs = new ArrayList<>();
+        for(Integer i:arrayList){
+            if(i%2 == 0 && !rs.contains(i)){
+                rs.add(i);
+            }
+        }
+        return  rs;
+//        throw new NotImplementedException();
     }
 
     public List<Integer> sortByEvenAndOdd(List<Integer> arrayList) {
@@ -110,6 +132,7 @@ public class Add {
             }
         }
         Collections.sort(odd);
+        Collections.reverse(odd);
         Collections.sort(even);
         for (Integer i:odd){
             even.add(i);

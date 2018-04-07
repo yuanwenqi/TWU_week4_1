@@ -52,7 +52,7 @@ public class CollectionOperator {
     }
 
     public int popLastElment(int[] array) {
-        return array[array.length];
+        return array[array.length-1];
 //        throw new NotImplementedException();
     }
 
@@ -60,8 +60,8 @@ public class CollectionOperator {
             List<Integer> rs = new ArrayList<>();
             for (int i:firstArray){
                 for(int j:secondArray){
-                    if(firstArray[i] == secondArray[j]){
-                        rs.add(firstArray[i]);
+                    if(i == j){
+                        rs.add(i);
                     }
                 }
             }
@@ -71,11 +71,14 @@ public class CollectionOperator {
 
     public List<Integer> addUncommonElement(Integer[] firstArray, Integer[] secondArray) {
         List<Integer> rs = new ArrayList<>();
-        for (int i:firstArray){
-            for(int j:secondArray){
-                if(firstArray[i] == secondArray[j]){
-                    rs.add(firstArray[i]);
-                }
+        for (int i:firstArray) {
+            if (!rs.contains(i)) {
+                rs.add(i);
+            }
+        }
+        for(int i:secondArray){
+            if (!rs.contains(i)) {
+                rs.add(i);
             }
         }
         return  rs;

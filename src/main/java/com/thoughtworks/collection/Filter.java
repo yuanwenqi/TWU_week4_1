@@ -18,7 +18,9 @@ public class Filter {
     public List<Integer> filterEven() {
         List<Integer> rs = new ArrayList<>();
         for(Integer i:this.array){
-            rs.add(i);
+            if (i%2 ==0){
+                rs.add(i);
+            }
         }
         return rs;
 //        throw new NotImplementedException();
